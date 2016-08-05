@@ -1,0 +1,75 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hack Blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href ="{% static 'css/hack_blog.css' %}">
+</head>
+<body>
+<div id="masthead">
+    <div class="container">
+        <div class="row">
+            <a href="/blogposts/"><h1> Hacky McHack Face
+                <p id="logo" class="lead"><strong>A Hacked Together Blog</strong></p>
+            </h1></a>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/blogposts/">Home</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="/profile/">Profile</a></li>
+                    <li><a href="/logout/">Log out</a></li>
+                    {% else %}
+                    <li><a href="/register/">Register</a></li>
+                    <li><a href="/login/">Log in</a></li>
+                    {% endif %}
+                    <li><a href="/popular">Order by views</a> </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+{% block content %}
+
+{% endblock content %}
+</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    var data = { "title": "From Ajax", "content": "Content from Ajax", "image": null }
+
+    $('#ajaxPost').click(function(){
+        alert('posting now');
+     $.ajax({
+             type: "POST",
+             url: "http://localhost:8000/api/posts/",
+             data: JSON.stringify(data),
+             contentType: "application/json; charset=utf-8",
+             crossDomain: true,
+             headers: {
+                    "Authorization": "Basic bmlhbGxzbWlAZ21haWwuY29tOjMyc3Bva2Vz"
+                  },
+             dataType: "json",
+             success: function (data, status, jqXHR) {
+                 alert(success);
+             },
+
+             error: function (jqXHR, status) {
+                 // error handler
+                 console.log(jqXHR);
+                 alert('fail' + status.code);
+             }
+          });
+
+    });
+
+</script>
+
+</html>

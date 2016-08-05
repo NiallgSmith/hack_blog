@@ -1,0 +1,7 @@
+.DS_Store
+.idea
+*.pyc
+*.sqlite3
+logs/logfile
+*.jpg
+hack_blog/media/images

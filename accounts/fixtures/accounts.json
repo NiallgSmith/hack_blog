@@ -1,0 +1,38 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$mPBH6IJcNYKq$JmlrNnfO8Sy4eBYCnHjDZiRlplLz29wM2VARRG9lK3w=",
+        "last_login": "2016-07-27T09:36:22.630Z",
+        "is_superuser": false,
+        "username": "niallsmi@gmail.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "niallsmi@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-07-26T14:04:10.550Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$vPuEXptlx9bK$N1fuBLzQEAQWYXvlF2iAODxfFZlVo1AtXKvxLM3PkeY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-07-28T09:39:54.257Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

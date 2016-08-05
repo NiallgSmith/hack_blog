@@ -1,0 +1,1 @@
+web: gunicorn hack_blog.wsgi:application

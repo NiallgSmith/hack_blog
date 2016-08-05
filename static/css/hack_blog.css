@@ -1,0 +1,52 @@
+/* Standard CSS for a fixed bootstrap navbar */
+.img-container {
+    overflow: hidden;
+    height: 285px;
+}
+.img-container img {
+    min-width: 280px;
+    min-height: 210px;
+    max-width: 380px;
+    max-height: 285px;
+}
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+
+.viewCounter {
+    color: #12ABB2;
+    display: inline;
+}
+.tags {
+    color: #12AB82;
+    display: inline;
+    font-style: italic;
+}
+.details {
+    display: inline;
+}
+.story-img {
+    margin-top: 25%;
+    display: block;
+}
+.new_post_button {
+    float: right;
+}
