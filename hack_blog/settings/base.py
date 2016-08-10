@@ -36,14 +36,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'blog',
     'django_forms_bootstrap',
+    'paypal.standard.ipn',
+    'tinymce',
     'accounts',
     'rest_framework',
     'rest_framework.authtoken',
     'api',
     'corsheaders',
-    'storages'
+    'storages',
+    'emoticons',
+    'paypal_store',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -114,11 +120,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = ''
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)  # static directory at the project level
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+TINYMCE_JS_ROOT = os.path.join(BASE_DIR, 'static','js', 'tinymce.min.js')
 
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', 'accounts.backends.EmailAuth',)
