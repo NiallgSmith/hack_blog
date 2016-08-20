@@ -25,7 +25,8 @@ ALLOWED_HOSTS = []
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY", "")
+# SECRET_KEY = os.getenv("SECRET_KEY", "")
+SECRET_KEY = '3a9oti=8qlh%rs!8!vy84gw4y8v)tufa1ubg%6rkt5it6ewrmt'
 
 # Application definition
 
@@ -49,7 +50,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'storages',
     'emoticons',
-    'paypal_store',
+    'threads',
+#    'paypal_store',
 ]
 
 MIDDLEWARE_CLASSES = [

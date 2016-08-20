@@ -19,6 +19,7 @@ from blog import views
 from django.contrib.staticfiles import views as static_views
 import settings.base
 from django.views.static import serve
+from threads import views as forum_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,5 +32,7 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.base.MEDIA_ROOT}),
     url(r'^blog/(?P<id>\d+)/edit$', views.edit_post, name="edit"),
     url(r'^popular/$', views.post_list_by_views, name="popular"),
-    url(r'^api/', include('api.urls'))
+    url(r'^api/', include('api.urls')),
+    url(r'^forum/$', forum_views.forum),
+    url(r'^threads/(?P<subject_id>\d+)/$', forum_views, name='threads'),
 ]
