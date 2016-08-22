@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.template.context_processors import csrf
 from .forms import ThreadForm, PostForm
+from threads.models import Subject, Post, Thread
 
 
 # Create your views here.
@@ -51,4 +52,3 @@ def new_thread(request, subject_id):
 
         return render(request, 'thread_form.html', args)
 
-    
