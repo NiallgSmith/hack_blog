@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.template.context_processors import csrf
 from .forms import ThreadForm, PostForm
-from threads.models import Subject, Post, Thread
 
 
 # Create your views here.
@@ -17,6 +16,12 @@ def forum(request):
 def threads(request, subject_id):
     subject = get_object_or_404(Subject, pk=subject_id)
     return render(request, 'threads.html', {'subject':subject})
+
+def thread(request, thread_id):
+    thread_ = get_object_or_404(Thread, pk=thread_id)
+    args = {'thread': thread_}
+    args.update(csrf(request))
+    return render(request, 'thread.html', args)
 
 @login_required
 def new_thread(request, subject_id):

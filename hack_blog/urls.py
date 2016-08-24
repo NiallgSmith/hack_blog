@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^popular/$', views.post_list_by_views, name="popular"),
     url(r'^api/', include('api.urls')),
     url(r'^forum/$', forum_views.forum),
-    url(r'^threads/(?P<subject_id>\d+)/$', forum_views, name='threads'),
+    url(r'^threads/(?P<subject_id>\d+)/$', forum_views.threads, name='threads'),
     url(r'^new_thread/(?P<subject_id>\d+)/$', forum_views.new_thread, name='new_thread'),
+    url(r'^thread/(?P<thread_id>\d+)/$', forum_views.thread, name='thread'),
 ]
