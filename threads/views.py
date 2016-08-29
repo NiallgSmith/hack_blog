@@ -57,3 +57,30 @@ def new_thread(request, subject_id):
 
         return render(request, 'thread_form.html', args)
 
+@login_required
+def new_post(request, subject_id):
+    thread = get_object_or_404(Thread, pk=thread_id)
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(False)
+            post.thread = thread
+            post.user = request.user
+            post.save()
+
+            messages.success(request, "Your post hasbeen added to the thread!")
+
+            return redirect(reverse('thread', args={thread.pk}))
+
+        else:
+            form = PostForm()
+
+        args = {
+            'form' : form,
+            'form_action' : reverse('new_post', args={thread.id}),
+            'button_text' : 'Update Post',
+        }
+        args.update(csrf(request))
+
+        return render(request, 'post_form.html', args)
+
