@@ -85,3 +85,23 @@ def new_post(request, thread_id):
 
     return render(request, 'post_form.html', args)
 
+@login_required
+def edit_post(request, thread_id, post_id):
+    thread = get_object_or_404(Thread, pk=thread_id)
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "You have updated your thread!")
+
+            return redirect(reverse('thread', args={thread.pk}))
+
+    else:
+        form = PostForm(instance=post)
+
+    args = {
+        'form': form,
+        'form_action':
+    }
+
