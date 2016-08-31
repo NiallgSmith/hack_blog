@@ -26,6 +26,8 @@ def thread(request, thread_id):
 @login_required
 def new_thread(request, subject_id):
     subject = get_object_or_404(Subject, pk=subject_id)
+    # This is saying if the request is a POST (normally means a form was submitted, your new thread button is just a link, so it sends a GET request, so none of the code in the if is running
+    # skips this if, which has no else
     if request.method == "POST":
         thread_form = ThreadForm(request.POST)
         post_form = PostForm(request.POST)
@@ -44,21 +46,20 @@ def new_thread(request, subject_id):
 
             return redirect(reverse('thread', args={thread.pk}))
 
-        else:
-            thread_form = ThreadForm()
-            post_form = PostForm(request.POST)
+    thread_form = ThreadForm()
+    post_form = PostForm(request.POST)
 
-        args = {
-            'thread_form' : thread_form,
-            'post_form' : post_form,
-            'subject' : subject,
-        }
-        args.update(csrf(request))
+    args = {
+        'thread_form' : thread_form,
+        'post_form' : post_form,
+        'subject' : subject,
+    }
+    args.update(csrf(request))
 
-        return render(request, 'thread_form.html', args)
-
+    return render(request, 'thread_form.html', args)
+    
 @login_required
-def new_post(request, subject_id):
+def new_post(request, thread_id):
     thread = get_object_or_404(Thread, pk=thread_id)
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -72,15 +73,15 @@ def new_post(request, subject_id):
 
             return redirect(reverse('thread', args={thread.pk}))
 
-        else:
-            form = PostForm()
+    else:
+        form = PostForm()
 
-        args = {
-            'form' : form,
-            'form_action' : reverse('new_post', args={thread.id}),
-            'button_text' : 'Update Post',
-        }
-        args.update(csrf(request))
+    args = {
+        'form' : form,
+        'form_action' : reverse('new_post', args={thread.id}),
+        'button_text' : 'Update Post',
+    }
+    args.update(csrf(request))
 
-        return render(request, 'post_form.html', args)
+    return render(request, 'post_form.html', args)
 

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'blog',
     'django_forms_bootstrap',
-    'paypal.standard.ipn',
+#    'paypal.standard.ipn',
     'tinymce',
     'accounts',
     'rest_framework',
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'api',
     'corsheaders',
     'storages',
-    'emoticons',
+    #'emoticons',
     'threads',
 #    'paypal_store',
 ]

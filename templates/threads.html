@@ -1,4 +1,4 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% load thread_extras %}
 {% block content %}
     <div class="row header">
@@ -6,11 +6,15 @@
     </div>
     <div class="col-md-12">
         {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'new_thread' subject.id %}">
+		<input type="submit" value="New Thread"/>
+                {% csrf_token %}
+            </form>
             <p><a href="{% url 'new_thread' subject.id %}" class="btn btn-primary">
                 New Thread</a> </p>
         {% endif %}
         {% for thread in subject.threads.all %}
-            {% include "forum/thread_item.html" %}
+            {% include "thread_item.html" %}
         {% endfor %}
     </div>
 {% endblock %}
