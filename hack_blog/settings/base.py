@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'api',
     'corsheaders',
     'storages',
-    #'emoticons',
+    'emoticons',
     'threads',
 #    'paypal_store',
 ]

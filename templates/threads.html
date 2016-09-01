@@ -6,10 +6,10 @@
     </div>
     <div class="col-md-12">
         {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'new_thread' subject.id %}">
-		<input type="submit" value="New Thread"/>
-                {% csrf_token %}
-            </form>
+{#            <form method="POST" action="{% url 'new_thread' subject.id %}">#}
+{#		<input type="submit" value="New Thread"/>#}
+{#                {% csrf_token %}#}
+{#            </form>#}
             <p><a href="{% url 'new_thread' subject.id %}" class="btn btn-primary">
                 New Thread</a> </p>
         {% endif %}

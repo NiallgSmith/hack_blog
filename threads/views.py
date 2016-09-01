@@ -102,6 +102,23 @@ def edit_post(request, thread_id, post_id):
 
     args = {
         'form': form,
-        'form_action':
+        'form_action': reverse('edit_post', kwargs={"thread_id" : thread_id, "post_id" : post_id}),
+        'button_text': 'Update Post'
     }
+    args.update(csrf(request))
+
+    return render(request, 'post_form.html', args)
+
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    thread_id = post.thread_id
+    post.delete()
+
+    messages.success(request, "Post deleted!")
+
+    return redirect(reverse('thread', args={thread_id}))
+#    return redirect(reverse('thread', args=(thread_id, post_id)))
+
+
 
