@@ -3,6 +3,14 @@
 {% load staticfiles %}
 {% block content %}
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags%} class="{{message.tags }}"{% endif %}> <h3>{{ message }} </h3></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <div class="row header">
     <div class="container">
         <h2>{{ thread.name }}</h2>

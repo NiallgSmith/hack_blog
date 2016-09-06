@@ -10,9 +10,9 @@
     <div class="col-md-6">
         <div class="pull-right">
             {% if post.user == user or user.is_staff %}
-                <a href="{% url 'edit_post' thread.id post.id %}">
+                <a href="{% url 'edit_post' thread.id post.id %}">Edit
                     <i class="fa fa-pencil-square-o"></i></a>
-                <a href="{% url 'delete_post' post.id %}">
+                <a href="{% url 'delete_post' post.id %}">Delete
                     <i class="fa fa-trash-o"></i></a>
             {% endif %}
         </div>

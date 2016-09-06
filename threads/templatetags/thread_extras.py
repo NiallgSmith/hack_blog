@@ -1,6 +1,8 @@
 import arrow
 from django import template
 from django.core.urlresolvers import reverse
+from django.shortcuts import redirect
+
 
 register = template.Library()
 
@@ -17,5 +19,10 @@ def started_time(created_at):
 
 @register.filter
 def last_posted_user_name(thread):
-    posts = thread.posts.all().order_by('-created_at')
-    return posts[posts.count()-1].user.username
+    if thread.posts.count() > 0:
+        posts = thread.posts.all().order_by('-created_at')
+        return posts[posts.count()-1].user.username
+
+    else:
+        return "This thread is empty"
+
