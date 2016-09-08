@@ -34,7 +34,7 @@
                 </tbody>
             </table>
         </div>
-
+    {% autoescape off %}
     {% if thread.poll %}
         <div class="container">
             <div class="col-md-6">
@@ -72,4 +72,5 @@
     {% include "post.html" %}
     {% endfor %}
 </div>
+    {% endautoescape %}
 {% endblock %}
