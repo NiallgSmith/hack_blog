@@ -19,6 +19,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "False")
 #print "base dir path", BASE_DIR
 
 ALLOWED_HOSTS = []
+SITE_ID = 1
 
 
 # Quick-start development settings - unsuitable for production
