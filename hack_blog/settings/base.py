@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     'rest_framework.authtoken',
-    'api',
+#    'api',
     'corsheaders',
     'storages',
     'emoticons',
@@ -131,7 +131,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)  # static directory at th
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-TINYMCE_JS_ROOT = os.path.join(BASE_DIR, 'static','js', 'tinymce.min.js')
+TINYMCE_JS_ROOT = os.path.join(BASE_DIR, 'static', 'tinymce.min.js')
 
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', 'accounts.backends.EmailAuth',)
