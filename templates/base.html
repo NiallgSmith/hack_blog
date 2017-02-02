@@ -34,7 +34,9 @@
                 </ul>
             </nav>
         </div>
-    <p>Logged in as: </p>
+    {% if user.is_authenticated %}
+    <p>Logged in as: {{ user }}</p>
+    {% endif %}
     </div>
 </div>
 <div class="container">
